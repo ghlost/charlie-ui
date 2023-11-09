@@ -1,5 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './assets/images/logo.svg';
+import './assets/css/App.css';
+import Menu from './components/Menu';
+// import transaction from './transactions.json';
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <Menu />
     </div>
   );
 }

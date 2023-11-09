@@ -1,0 +1,16 @@
+{
+  "set": [
+    {
+      "amount": "$542.25",
+      "background": "./assets/images/starbucks.svg",
+      "last": "4587",
+      "type": "MC"
+    },
+    {
+      "amount": "₴1000",
+      "background": "./assets/images/starbucks.svg",
+      "last": "0745",
+      "type": "Visa",
+    }
+  ]
+}
