@@ -3,6 +3,12 @@ import {ReactComponent as SearchLogo} from '../assets/images/search.svg';
 import TransactionsItem from './TransactionsItem';
 import '../assets/css/Transactions.css';
 
+/**
+ * Transactions - display component for a series of transactions
+ * @param {object} props
+ * @param {array} props.set - list of a number of transactions to display
+ * @returns 
+ */
 const Transactions = ({set}) => {
   const [groups, setGroups] = useState();
 
@@ -34,7 +40,8 @@ const Transactions = ({set}) => {
   }
 
   /**
-   * 
+   * getSubheadDate - calculate and return a string that will display
+   *  date or relative strings for when the event occured
    * @param {number} unix - number of seconds since epoch
    * @returns {string} - a word or string to denote the day the actions happened
    */
@@ -49,7 +56,8 @@ const Transactions = ({set}) => {
     const nowDate = nowDateObj.getDate();
 
     // if the difference between the milliseconds of now and the item
-    // is fewer than twice the milliseconds in a day 
+    // is fewer than twice the milliseconds in a day then it happened
+    // today or yesterday
     if(now - itemMilli < oneDayMilli * 2) {
       if(nowDate - itemDate === 0) {
         displayDate = 'Today';
@@ -108,6 +116,7 @@ const Transactions = ({set}) => {
         </button>
       </header>
       <div className='transactions-group'>
+        {/* groups is an array of GROUPED arrays by their date. groups[0] would be anything that happened most recently on the same day, eg groups[0][0] would be the most recent event or within the map function: group[0] */}
         {!!groups && groups.map((group, index) => {
           return (
             <ul className='transactions-set' key={index} role='menu' aria-labelledby={`transaction-set-${index}`}>

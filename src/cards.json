@@ -2,13 +2,13 @@
   "set": [
     {
       "amount": "$542.25",
-      "background": "assets/images/mastercard.svg",
+      "imageUrl": "assets/images/mastercard.svg",
       "last": "4587",
       "type": "MC"
     },
     {
       "amount": "₴1000",
-      "background": "assets/images/visa.svg",
+      "imageUrl": "assets/images/visa.svg",
       "last": "0745",
       "type": "Visa"
     }

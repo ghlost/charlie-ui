@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react';
 
+/**
+ * Timecode - component to display a specific timecode format
+ * @param {object} props
+ * @param {number} props.unix - seconds for the timecode
+ * @returns 
+ */
 const Timecode = ({unix}) => {
   const [date, setDate] = useState(new Date(unix * 1000));
 

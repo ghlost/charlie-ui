@@ -2,14 +2,16 @@ import '../assets/css/Card.css';
 import { useEffect, useState } from 'react';
 
 /**
- * Card - visual 
+ * Card - visual and text indicator of card status
  * @param {object} props
- * @param {string} props.text - action for button to display
- * @param {ReactComponent} props.LogoName - SVG masked as ReactComponent in order for inlining
+ * @param {string} props.amount - money on the card or in the account
+ * @param {string} props.background - background path to an image for the card
+ * @param {string} props.last - last 4 digits for the card
+ * @param {string} props.type - provide alt attribute a type to display
  * @returns 
  */
-const Card = ({amount, background, last, type}) => {
-  let [icon, setIcon] = useState(background);
+const Card = ({amount, imageUrl, last, type}) => {
+  let [background, setBackground] = useState(imageUrl);
 
   useEffect(() => {
     /**
@@ -17,19 +19,19 @@ const Card = ({amount, background, last, type}) => {
      * they will be in advance
      */
     async function fetchData() {
-      let importedIcon = await import(`../${background}`);
-      setIcon(importedIcon.default);
+      let importedBackground = await import(`../${imageUrl}`);
+      setBackground(importedBackground.default);
     }
     fetchData();
 
     return () => {
-      setIcon(null);
+      setBackground(null);
     }
-  }, [background]);
+  }, [imageUrl]);
 
   return (
     <div className='card'>
-      <img alt={type} src={ icon } role='presentation'/>
+      <img alt={type} src={ background } role='presentation'/>
       <span className='card-amount'>{amount}</span>
       <span className='card-digits'>•••• {last}</span>
     </div>

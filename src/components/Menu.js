@@ -5,6 +5,10 @@ import {ReactComponent as MapLogo} from '../assets/images/menu/pin.svg';
 import {ReactComponent as SettingsLogo} from '../assets/images/menu/settings.svg';
 import MenuItem from './MenuItem';
 
+/**
+ * Menu - Navigation component
+ * @returns 
+ */
 const Menu = () => {
   const menuSet = [
     {

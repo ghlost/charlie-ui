@@ -1,6 +1,16 @@
 import { useEffect, useState} from 'react';
 import Timecode from './Timecode';
 
+/**
+ * TransactionsItem - Individual transaction to display
+ * @param {object} props
+ * @param {string} props.amount - value of the transaction
+ * @param {string} props.unix - time in seconds since epoch of event
+ * @param {string} props.name - name of the transaction, person or place
+ * @param {string} props.imageUrl - path to the image asset to identify transaction
+ * @param {string} props.type - credit or debit value to change color
+ * @returns 
+ */
 const TransactionsItem = ({amount, unix, name, imageUrl, type}) => {
   let [avatar, setAvatar] = useState(imageUrl);
 
@@ -11,7 +21,6 @@ const TransactionsItem = ({amount, unix, name, imageUrl, type}) => {
      * they will be in advance
      */
     async function fetchData() {
-      // You can await here
       let importedAvatar = await import(`../${imageUrl}`);
       setAvatar(importedAvatar.default);
     }
