@@ -100,7 +100,7 @@ const Transactions = ({set}) => {
   }, [set]);
 
   return (
-    <section className='transactions' role='region' aria-labelledby='transactions-id'>
+    <section className='transactions' aria-labelledby='transactions-id'>
       <header className='transactions-header'>
         <h2 className='transactions-headline' id='transactions-id'>Transactions</h2>
         <button className='transaction-button'>

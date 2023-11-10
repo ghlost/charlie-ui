@@ -1,6 +1,13 @@
 import '../assets/css/Card.css';
 import { useEffect, useState } from 'react';
 
+/**
+ * Card - visual 
+ * @param {object} props
+ * @param {string} props.text - action for button to display
+ * @param {ReactComponent} props.LogoName - SVG masked as ReactComponent in order for inlining
+ * @returns 
+ */
 const Card = ({amount, background, last, type}) => {
   let [icon, setIcon] = useState(background);
 

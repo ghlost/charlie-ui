@@ -5,6 +5,10 @@ import {ReactComponent as UtilitiesLogo} from '../assets/images/buttons/bank.svg
 import {ReactComponent as StatsLogo} from '../assets/images/buttons/pie-chart.svg';
 import ButtonItem from './ButtonItem';
 
+/**
+ * ButtonItem - Set of buttons, maybe up of ButtonItems
+ * @returns 
+ */
 const Buttons = () => {
   const buttonSet = [
     {
@@ -24,6 +28,7 @@ const Buttons = () => {
       LogoName: StatsLogo
     }
   ]
+
   return (
     <ul className='buttons-set' role='menu'>
       {buttonSet && buttonSet.map((item) => {
