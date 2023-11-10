@@ -1,9 +1,12 @@
-import logo from '../assets/images/logo.svg';
+import '../assets/css/Cards.css';
+import Card from './Card';
 
-const Cards = () => {
+const Cards = ({set}) => {
   return (
-    <div className="test">
-      <img src={logo} className="App-logo" alt="logo" />
+    <div className='cards'>
+      {set && set.map(item => {
+        return <Card {...item} key={item.last} />
+      })}
     </div>
   );
 }

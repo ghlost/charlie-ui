@@ -1,4 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 .App {
+  overflow-x: hidden;
+  padding-top: 64px;
   text-align: center;
 }
 

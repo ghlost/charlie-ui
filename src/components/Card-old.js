@@ -1,14 +1,14 @@
-import '../assets/css/Card.css';
 import { useEffect, useState } from 'react';
 // import logo from '../assets/images/logo.svg';
 
 const Card = ({amount, background, last, type}) => {
+  console.log(background);
   let [icon, setIcon] = useState(background);
 
   useEffect(() => {
     async function fetchData() {
       // You can await here
-      let importedIcon = await import(`../assets/images/${background}`);
+      let importedIcon = await import(`${background}`);
       setIcon(importedIcon.default);
     }
     fetchData();
@@ -18,13 +18,7 @@ const Card = ({amount, background, last, type}) => {
     }
   }, [background]);
 
-  return (
-    <div className='card'>
-      <img alt={type} src={ icon }/>
-      <span className='card-amount'>{amount}</span>
-      <span className='card-digits'>•••• {last}</span>
-    </div>
-  );
+  return <img alt='' src={ icon }/>;
 }
 
 export default Card;

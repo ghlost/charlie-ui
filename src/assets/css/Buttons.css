@@ -1,0 +1,49 @@
+.buttons-set {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 16px;
+}
+
+.button-item {
+  list-style: none;
+}
+
+.button-link {
+  appearance: none;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.button-link:hover,
+.button-link:focus {
+  color: #366AB2;
+  text-decoration: underline;
+}
+
+.button-button {
+  align-items: center;
+  background: #366AB2;
+  border: 2px solid #366AB2;
+  border-radius: 50%;
+  display: flex;
+  height: 46px;
+  justify-content: center;
+  margin-bottom: 8px;
+  width: 46px;
+}
+
+.button-link:hover .button-button,
+.button-link:focus .button-button {
+  background: #FFFFFF;
+}
+
+.button-text {
+  color: #366AB2;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+}

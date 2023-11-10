@@ -1,3 +1,14 @@
+.menu {
+  background: #FFFFFF;
+  border-top: 1px solid #CCCCCC;
+  bottom: 0;
+  height: 65px;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
 .menu-set {
   display: grid;
   grid-template-columns: repeat(12, 1fr);

@@ -1,12 +1,16 @@
-import logo from './assets/images/logo.svg';
+// import logo from './assets/images/logo.svg';
 import './assets/css/App.css';
+import Buttons from './components/Buttons';
+import Cards from './components/Cards';
 import Menu from './components/Menu';
-// import transaction from './transactions.json';
+import transactions from './transactions.json';
+import cards from './cards.json';
+import Transactions from './components/Transactions';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -19,7 +23,10 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      <Cards {...cards}/>
+      <Buttons />
+      <Transactions {...transactions}/>
       <Menu />
     </div>
   );

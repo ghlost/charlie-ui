@@ -27,17 +27,18 @@ const Menu = () => {
       text: 'Settings',
       LogoName: SettingsLogo
     }
-
   ]
+
   return (
-    <ul className='menu-set'>
-      {menuSet && menuSet.map((item) => {
-        return (
-          <MenuItem {...item} key={item.text}>
-          </MenuItem>
-        )
-      })}
-    </ul>
+    <header className='menu'>
+      <ul className='menu-set'>
+        {menuSet && menuSet.map((item) => {
+          return (
+            <MenuItem {...item} key={item.text} />
+          )
+        })}
+      </ul>
+    </header>
   );
 }
 

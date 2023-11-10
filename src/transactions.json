@@ -2,23 +2,23 @@
   "set": [
     {
       "amount": "$9.99",
-      "date": 1656879872,
+      "unix": 1656879872,
       "name": "Netflix",
-      "imageUrl": "./assets/images/netflix.svg",
+      "imageUrl": "assets/images/netflix.svg",
       "type": "debit"
     },
     {
       "amount": "$5.42",
-      "date": 1656864831,
+      "unix": 1656864831,
       "name": "Starbucks",
-      "imageUrl": "./assets/images/starbucks.svg",
+      "imageUrl": "assets/images/starbucks.svg",
       "type": "debit"
     },
     {
       "amount": "$300",
-      "date": 1656810872,
+      "unix": 1656810872,
       "name": "Melania Skorokhod",
-      "imageUrl": "./assets/images/mskorokhod.png",
+      "imageUrl": "assets/images/mskorokhod.png",
       "type": "credit"
     }
   ]
