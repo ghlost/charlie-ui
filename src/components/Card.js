@@ -17,7 +17,7 @@ const Card = ({amount, background, last, type}) => {
      * they will be in advance
      */
     async function fetchData() {
-      let importedIcon = await import(`../assets/images/${background}`);
+      let importedIcon = await import(`../${background}`);
       setIcon(importedIcon.default);
     }
     fetchData();
