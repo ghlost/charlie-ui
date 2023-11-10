@@ -10,6 +10,8 @@ import MenuItem from './MenuItem';
  * @returns 
  */
 const Menu = () => {
+  // this information would likely come from some other location like a menu
+  // setting in a cms.
   const menuSet = [
     {
       link: '/',

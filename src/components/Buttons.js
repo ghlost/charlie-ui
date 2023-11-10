@@ -10,6 +10,8 @@ import ButtonItem from './ButtonItem';
  * @returns 
  */
 const Buttons = () => {
+  // this information would likely come from some other location like a cms
+  // or another json file.
   const buttonSet = [
     {
       text: 'Send',

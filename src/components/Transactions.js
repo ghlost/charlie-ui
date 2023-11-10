@@ -72,40 +72,16 @@ const Transactions = ({set}) => {
   }
 
   useEffect(() => {
-    let sortedSet = [...set];
-    sortedSet.sort((a, b) => a.unix - b.unix);
-    let groupedArray = []
-    let current;
-    let dateString;
+    // copy the array and sort it by most recent entry
+    // data is already sorted but just in case
+    let sortedSet = [...set].sort((a, b) => b.unix - a.unix);
 
-    // loop through the set popping out the last in the area to construct
-    // groupings of dates.
-    while(sortedSet.length > 0) {
-      const grouping = [];
-      current = sortedSet.pop();
-      // console.log('current', current);
-      grouping.push(current);
-      dateString = getDateString(current.unix);
+    // groups an array into an object based on a function,
+    // in this case our getDateString()
+    const groupedByDate = Object.groupBy(sortedSet, ({unix}) => getDateString(unix));
 
-      // go in reverse to pop out items without re-indexing
-      for(let i = sortedSet.length - 1; i > 0; i--) {
-        // since this is sorted already we know that if the next item is NOT
-        // the same day then you can break the loop and go to the pop the next
-        if (getDateString(sortedSet[i].unix) !== dateString) {
-          break;
-        } else {
-          grouping.push(sortedSet.pop());
-        }
-      }
-
-      groupedArray.push(grouping);
-    }
-    setGroups([...groupedArray]);
-
-    return () => {
-      setGroups([]);
-    }
-  }, [set]);
+    setGroups({...groupedByDate});
+  }, [set])
 
   return (
     <section className='transactions' aria-labelledby='transactions-id'>
@@ -116,12 +92,12 @@ const Transactions = ({set}) => {
         </button>
       </header>
       <div className='transactions-group'>
-        {/* groups is an array of GROUPED arrays by their date. groups[0] would be anything that happened most recently on the same day, eg groups[0][0] would be the most recent event or within the map function: group[0] */}
-        {!!groups && groups.map((group, index) => {
+        {/* Groups is an object. If you grab the keys, each key is a date and the value is an array of transactions associate with it. Loop through each key, and for each key display a headline and loop through the array for each transaction. */}
+        {!!groups && Object.keys(groups).map((group, index) => {
           return (
             <ul className='transactions-set' key={index} role='menu' aria-labelledby={`transaction-set-${index}`}>
-              <li className='transaction-item'><h3 id={`transactions-set-${index}`} className='transaction-subhead'>{getSubheadDate(group[0].unix)}</h3></li>
-              { group.map(item => {
+              <li className='transaction-item' role='presentation'><h3 id={`transactions-set-${index}`} className='transaction-subhead' role='menuitem'>{getSubheadDate(groups[group][0].unix)}</h3></li>
+              { groups[group].map(item => {
                 return <TransactionsItem {...item} key={item.unix} />
               }) }
             </ul>

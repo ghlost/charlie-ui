@@ -1,5 +1,5 @@
 .card {
-  color: #FFFFFF;
+  color: var(--color-white);
   position: relative;
 }
 

@@ -1,6 +1,6 @@
 .transactions {
-  background: #FFFFFF;
-  border: 1px solid #EBEBEB;
+  background: var(--color-white);
+  border: 1px solid var(--color-section-border);
   border-radius: 32px;
   margin: 32px auto 0;
   max-width: 800px;
@@ -11,7 +11,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 32px 16px 12px;
+  padding: 32px 16px 0;
 }
 
 .transactions-headline {
@@ -24,14 +24,14 @@
   appearance: none;
   background: none;
   border: none;
-  color: #292929;
+  color: var(--color-text-main);
   cursor: pointer;
   transition: all 0.1s ease-in-out;
 }
 
 .transaction-button:hover,
 .transaction-button:focus {
-  color: #366AB2;
+  color: var(--color-primary);
 }
 
 .transactions-group {
@@ -43,7 +43,7 @@
 }
 
 .transaction-subhead {
-  color: #3D3D3D;
+  color: var(--color-text-date);
   font-weight: 400;
   font-size: 16px;
   line-height: 1.17;
@@ -62,14 +62,14 @@
 }
 
 .transaction-date {
-  color: #7A7A7A;
+  color: var(--color-text-data);
   font-size: 15px;
   line-height: 1.17;
   margin: 0 0 2px 0;
 }
 
 .transaction-name {
-  color: #292929;
+  color: var(--color-text-main);
   font-size: 20px;
   line-height: 1.17;
   margin: 0 2px 0 0;
@@ -83,11 +83,11 @@
 }
 
 .transaction-amount-debit {
-  color: #FE263F;
+  color: var(--color-expense);
 }
 
 .transaction-amount-credit {
-  color: #18AA15;
+  color: var(--color-income);
 }
 
 @media screen and (min-width: 768px) {

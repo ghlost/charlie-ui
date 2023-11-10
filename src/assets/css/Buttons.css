@@ -14,21 +14,21 @@
   appearance: none;
   background: none;
   border: none;
-  color: #FFFFFF;
+  color: var(--color-white);
   cursor: pointer;
   transition: all 0.1s ease-in-out;
 }
 
 .button-link:hover,
 .button-link:focus {
-  color: #366AB2;
+  color: var(--color-primary);
   text-decoration: underline;
 }
 
 .button-background {
   align-items: center;
-  background: #366AB2;
-  border: 1px solid #366AB2;
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
   border-radius: 50%;
   display: flex;
   height: 46px;
@@ -44,11 +44,13 @@
 
 .button-link:hover .button-text,
 .button-link:focus .button-text {
+  /* Another visual indicator on the text for accessibility */
+  /* It was bolded on hover/focus but it shifted things around */
   text-decoration: underline;
 }
 
 .button-text {
-  color: #366AB2;
+  color: var(--color-primary);
   display: inline-block;
   font-size: 16px;
   line-height: 1;
