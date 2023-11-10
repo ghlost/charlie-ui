@@ -75,10 +75,23 @@ const Transactions = ({set}) => {
     // copy the array and sort it by most recent entry
     // data is already sorted but just in case
     let sortedSet = [...set].sort((a, b) => b.unix - a.unix);
+    let groupedByDate = {};
 
     // groups an array into an object based on a function,
     // in this case our getDateString()
-    const groupedByDate = Object.groupBy(sortedSet, ({unix}) => getDateString(unix));
+    // Object.groupBy() actually does not work on Mac OSX
+    if(typeof Object.groupBy !== 'undefined') {
+      groupedByDate = Object.groupBy(sortedSet, ({unix}) => getDateString(unix));
+    } else {
+      sortedSet.forEach(item => {
+        const currentDate = getDateString(item.unix)
+        if(groupedByDate.hasOwnProperty(currentDate)) {
+          groupedByDate[currentDate].push(item);
+        } else {
+          groupedByDate[currentDate] = [item];
+        }
+      });
+    }
 
     setGroups({...groupedByDate});
   }, [set])
