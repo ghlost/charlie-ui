@@ -1,6 +1,5 @@
 import '../assets/css/Card.css';
 import { useEffect, useState } from 'react';
-// import logo from '../assets/images/logo.svg';
 
 const Card = ({amount, background, last, type}) => {
   let [icon, setIcon] = useState(background);
@@ -11,7 +10,6 @@ const Card = ({amount, background, last, type}) => {
      * they will be in advance
      */
     async function fetchData() {
-      // You can await here
       let importedIcon = await import(`../assets/images/${background}`);
       setIcon(importedIcon.default);
     }
@@ -24,7 +22,7 @@ const Card = ({amount, background, last, type}) => {
 
   return (
     <div className='card'>
-      <img alt={type} src={ icon }/>
+      <img alt={type} src={ icon } role='presentation'/>
       <span className='card-amount'>{amount}</span>
       <span className='card-digits'>•••• {last}</span>
     </div>

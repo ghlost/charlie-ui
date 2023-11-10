@@ -23,8 +23,8 @@ const TransactionsItem = ({amount, unix, name, imageUrl, type}) => {
   }, [imageUrl]);
 
   return (
-    <li className='transaction-item'>
-      <img alt={type} src={ avatar }/>
+    <li className='transaction-item' role='menuitem'>
+      <img alt={name} src={ avatar }/>
       <div className='transaction-details'>
         <p className='transaction-name'>{name}</p>
         <p className='transaction-date'><Timecode unix={unix} /></p>

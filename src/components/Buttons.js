@@ -1,4 +1,3 @@
-// import logo from '../assets/images/logo.svg';
 import '../assets/css/Buttons.css';
 import {ReactComponent as SendLogo} from '../assets/images/buttons/send-money.svg';
 import {ReactComponent as ReceiveLogo} from '../assets/images/buttons/money-withdrawal.svg';
@@ -26,7 +25,7 @@ const Buttons = () => {
     }
   ]
   return (
-    <ul className='buttons-set'>
+    <ul className='buttons-set' role='menu'>
       {buttonSet && buttonSet.map((item) => {
         return (
           <ButtonItem {...item} key={item.text} />

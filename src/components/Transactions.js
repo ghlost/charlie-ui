@@ -8,18 +8,18 @@ const Transactions = ({set}) => {
 
   // used to map the numbers to the months
   const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sept",
-    "Oct",
-    "Nov",
-    "Dec"
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'Dececember'
   ];
 
   /**
@@ -33,11 +33,34 @@ const Transactions = ({set}) => {
     return displayDate.toDateString();
   }
 
+  /**
+   * 
+   * @param {number} unix - number of seconds since epoch
+   * @returns {string} - a word or string to denote the day the actions happened
+   */
   const getSubheadDate = (unix) => {
-    const displayDate = new Date(unix * 1000);
-    const now = new Date();
+    let displayDate;
+    const oneDayMilli = 86400000;
+    const itemMilli = unix * 1000
+    const itemDateObj = new Date(itemMilli);
+    const itemDate = itemDateObj.getDate();
+    const now = Date.now();
+    const nowDateObj = new Date(now);
+    const nowDate = nowDateObj.getDate();
 
-    return displayDate.
+    // if the difference between the milliseconds of now and the item
+    // is fewer than twice the milliseconds in a day 
+    if(now - itemMilli < oneDayMilli * 2) {
+      if(nowDate - itemDate === 0) {
+        displayDate = 'Today';
+      } else {
+        displayDate = 'Yesterday';
+      }
+    } else {
+      displayDate = `${months[itemDateObj.getMonth()]} ${itemDate}`;
+    }
+
+    return displayDate
   }
 
   useEffect(() => {
@@ -74,20 +97,21 @@ const Transactions = ({set}) => {
     return () => {
       setGroups([]);
     }
-  }, [set])
+  }, [set]);
 
   return (
-    <section className='transactions'>
+    <section className='transactions' role='region' aria-labelledby='transactions-id'>
       <header className='transactions-header'>
-        <h2 className='transactions-headline'>Transactions</h2>
-        <SearchLogo />
+        <h2 className='transactions-headline' id='transactions-id'>Transactions</h2>
+        <button className='transaction-button'>
+          <SearchLogo className='transaction-search' />
+        </button>
       </header>
       <div className='transactions-group'>
         {!!groups && groups.map((group, index) => {
           return (
-            <ul className='transactions-set' key={index}>
-              {/* Needs to be updated to eye friendly date OR 'Yesterday' */}
-              <li className='transaction-item'><h3 className='transaction-subhead'>{getDateString(group[0].unix)}</h3></li>
+            <ul className='transactions-set' key={index} role='menu' aria-labelledby={`transaction-set-${index}`}>
+              <li className='transaction-item'><h3 id={`transactions-set-${index}`} className='transaction-subhead'>{getSubheadDate(group[0].unix)}</h3></li>
               { group.map(item => {
                 return <TransactionsItem {...item} key={item.unix} />
               }) }

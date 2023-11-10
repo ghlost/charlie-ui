@@ -30,8 +30,8 @@ const Menu = () => {
   ]
 
   return (
-    <nav className='menu' role="navigation">
-      <ul className='menu-set'>
+    <nav className='menu'>
+      <ul className='menu-set' role='menu'>
         {menuSet && menuSet.map((item) => {
           return (
             <MenuItem {...item} key={item.text} />

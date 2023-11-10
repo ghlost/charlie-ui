@@ -1,10 +1,7 @@
-// import {ReactComponent as HomeLogo} from '../assets/images/home.svg';
-// import {ReactComponent as icons} from '../assets/images/menu/';
-
 const MenuItem = ({link, text, LogoName}) => {
   return (
-    <li className='menu-item'>
-      <a className='menu-link' href={link}>
+    <li className='menu-item' role='presentation'>
+      <a className='menu-link' href={link} role='menuitem'>
         <LogoName className='menu-icon'/>
         <span className='menu-text'>{text}</span>
       </a>
