@@ -6,6 +6,10 @@ const Card = ({amount, background, last, type}) => {
   let [icon, setIcon] = useState(background);
 
   useEffect(() => {
+    /**
+     * fetchData - async function to import assets without knowing what
+     * they will be in advance
+     */
     async function fetchData() {
       // You can await here
       let importedIcon = await import(`../assets/images/${background}`);

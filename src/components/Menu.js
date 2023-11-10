@@ -30,7 +30,7 @@ const Menu = () => {
   ]
 
   return (
-    <header className='menu'>
+    <nav className='menu' role="navigation">
       <ul className='menu-set'>
         {menuSet && menuSet.map((item) => {
           return (
@@ -38,7 +38,7 @@ const Menu = () => {
           )
         })}
       </ul>
-    </header>
+    </nav>
   );
 }
 

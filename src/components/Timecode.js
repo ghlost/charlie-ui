@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 const Timecode = ({unix}) => {
   const [date, setDate] = useState(new Date(unix * 1000));
 
+  // used to map the numbers to the months
   const months = [
     "Jan",
     "Feb",
@@ -28,6 +29,7 @@ const Timecode = ({unix}) => {
 
   return (
     <>
+      {/* output Jul 3, 2022 13:23 as a string */}
       {date && `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`}
     </>
   )
